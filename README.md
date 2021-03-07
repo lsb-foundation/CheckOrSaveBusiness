@@ -12,34 +12,10 @@ Register<MyselfSaver>("MYER");		//CheckOrSaveBusiness.Factories.SaverFactory.Reg
 ## Injection automatically with attribute
 ```csharp
 [CheckerName("MYER")]
-public class MyelfChecker : IChecker
-{
-	public void Init(string config)
-	{
-		//...
-	}
-
-	public Result Check()
-	{
-		//...
-		return Result.Success();
-	}
-}
+public class MyelfChecker : IChecker { //... }
 
 [SaverName("MYER")]
-public class MyelfSaver : ISaver
-{
-	public void Init(string config)
-	{
-		//...
-	}
-
-	public Result Save()
-	{
-		//...
-		return Result.Success();
-	}
-}
+public class MyelfSaver : ISaver { //... }
 ```
 
 # Create Chain And Run
