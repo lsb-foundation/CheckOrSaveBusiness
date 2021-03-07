@@ -23,6 +23,7 @@ namespace CheckOrSaveBusiness.Chains
         public Result Save()
         {
             Result result = _saver.Save();
+            result.Saver = _saver;
             if ( result.IsSuccess && next != null)
             {
                 result = next.Save();

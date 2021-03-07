@@ -1,9 +1,13 @@
-﻿namespace CheckOrSaveBusiness.Models
+﻿using CheckOrSaveBusiness.Interfaces;
+
+namespace CheckOrSaveBusiness.Models
 {
     public class Result
     {
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
+        public IChecker Checker { get; set; }
+        public ISaver Saver { get; set; }
 
         public static Result Success()
         {

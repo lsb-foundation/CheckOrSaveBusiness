@@ -23,6 +23,7 @@ namespace CheckOrSaveBusiness.Chains
         public Result Check()
         {
             Result result = _checker.Check();
+            result.Checker = _checker;
             if (result.IsSuccess && next != null)
             {
                 result = next.Check();
