@@ -10,7 +10,7 @@ Register<MyselfSaver>("MYER");		//CheckOrSaveBusiness.Factories.SaverFactory.Reg
 ```
 
 ## Injection automatically with attribute
-```cahsrp
+```csharp
 [CheckerName("MYER")]
 public class MyelfChecker : IChecker
 {
