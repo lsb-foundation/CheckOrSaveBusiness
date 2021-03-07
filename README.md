@@ -1,5 +1,5 @@
 ﻿# CheckOrSaveBusiness
-Contains two simple dependency injection factories and a chain to check or save something you want.
+Contains two simple dependency injection factories and two chains to check or save something you want.
 
 ## Example
 
