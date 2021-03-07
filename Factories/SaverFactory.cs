@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using CheckOrSaveBusiness.Interfaces;
+using CheckOrSaveBusiness.Models;
 using CheckOrSaveBusiness.Savers;
 
 namespace CheckOrSaveBusiness.Factories
@@ -11,6 +14,7 @@ namespace CheckOrSaveBusiness.Factories
         static SaverFactory()
         {
             Register();
+            RegisterAutomatically();
         }
 
         public static ISaver GetSaver(string saverName)
@@ -23,6 +27,24 @@ namespace CheckOrSaveBusiness.Factories
         private static void Register<TSaver>(string saverName) where TSaver : ISaver, new()
         {
             _savers.Add(saverName, typeof(TSaver));
+        }
+
+        private static void RegisterAutomatically()
+        {
+            foreach (Type type in Assembly.GetEntryAssembly().GetTypes())
+            {
+                if (!type.IsClass) continue;
+                if (type.GetInterfaces().Any(t => t == typeof(ISaver)))
+                {
+                    if (type.GetCustomAttribute<SaverNameAttribute>() is SaverNameAttribute attribute)
+                    {
+                        if (!_savers.ContainsKey(attribute.Name))
+                        {
+                            _savers.Add(attribute.Name, type);
+                        }
+                    }
+                }
+            }
         }
 
         private static void Register()

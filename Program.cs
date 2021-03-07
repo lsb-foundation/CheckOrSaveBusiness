@@ -7,7 +7,7 @@ namespace CheckOrSaveBusiness
     {
         static void Main(string[] args)
         {
-            string config = "ROUTE:FOLLOW;MATERIAL:FOLLOW,SOLDER;FAILED:TEST;NONEXECUTE:TEST;";
+            string config = "ROUTE:FOLLOW;MATERIAL:FOLLOW,SOLDER;AUTO:AAA,BBB,CCC;FAILED:TEST;NONEXECUTE:TEST;";
 
             CheckerChain checkChain = CheckerChain.CreateChainFromConfig(config);
             checkChain.Check();
