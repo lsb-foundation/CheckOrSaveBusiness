@@ -1,7 +1,7 @@
-﻿# CheckOrSaveBusiness Introduction
+﻿# Introduction
 Contains two simple dependency injection factories and two chains to check or save something you want.
 
-# Factory Injection
+# Factory injection
 
 ## Manual injection
 ```csharp
@@ -18,7 +18,7 @@ public class MyelfChecker : IChecker { //... }
 public class MyelfSaver : ISaver { //... }
 ```
 
-# Create Chain And Run
+# Create chain and run
 ```csharp
 CheckerChain checker = new CheckerChain("MYER", "TEST1");
 CheckerChain anotherChecker = new CheckerChain("YOUR", "TEST2");
