@@ -1,17 +1,15 @@
-﻿# CheckOrSaveBusiness
+﻿# CheckOrSaveBusiness Introduction
 Contains two simple dependency injection factories and two chains to check or save something you want.
 
-## Example
+# Factory Injection
 
-### Factory Injection
-
-#### Manual injection
+## Manual injection
 ```csharp
 Register<MyselfChecker>("MYER");	//CheckOrSaveBusiness.Factories.CheckerFactory.Register()
 Register<MyselfSaver>("MYER");		//CheckOrSaveBusiness.Factories.SaverFactory.Register()
 ```
 
-#### Injection automatically with attribute
+## Injection automatically with attribute
 ```cahsrp
 [CheckerName("MYER")]
 public class MyelfChecker : IChecker
@@ -44,7 +42,7 @@ public class MyelfSaver : ISaver
 }
 ```
 
-### Create Chain And Run
+# Create Chain And Run
 ```csharp
 CheckerChain checker = new CheckerChain("MYER", "TEST1");
 CheckerChain anotherChecker = new CheckerChain("YOUR", "TEST2");
